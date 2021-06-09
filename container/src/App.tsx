@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {lazy} from 'react';
 //@ts-ignore
-import CounterAppTwo from 'app2/CounterAppTwo';
+// import CounterAppTwo from 'app2/CounterAppTwo';
+const AppTwo = lazy(() => import('app2/App'));
 //@ts-ignore
-import CounterAppOne from 'app1/CounterAppOne';
+// import CounterAppOne from 'app1/CounterAppOne';
+const CounterAppOne = lazy(() => import('app1/CounterAppOne'));
 
 export default () => (
   <div style={{ margin: '20px' }}>
@@ -36,8 +38,7 @@ export default () => (
             <CounterAppOne />
           </div>
           <div style={{ border: '1px dashed black', padding: '2rem' }}>
-            <h2>APP-2</h2>
-            <CounterAppTwo />
+            <AppTwo />
           </div>
         </div>
       </div>
