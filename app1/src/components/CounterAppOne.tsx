@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
 const Counter = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(2);
+
+  // useEffect(() => )
 
   return (
     <div>
@@ -9,7 +11,11 @@ const Counter = () => {
         Add by one each click <strong>APP-1</strong>
       </p>
       <p>Your click count: {count} </p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
+      <button onClick={() => {
+        const newCount = count +1;
+        setCount(newCount);
+        (global as any).EventBus.emmit('setMultiplier', newCount)
+      }}>Click me</button>
     </div>
   );
 };
